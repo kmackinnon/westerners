@@ -1,12 +1,36 @@
 <html>
 <head>
+
+<style>
+	.center {text-align:center;}
+	a {
+		color:red; 
+		font-style:italic; 
+	}
+	body {color:white;}
+	h1 {text-align:center;}
+</style>
+
 	<title> Login </title>
 </head>
-<body>
+<body background = "images/background.jpg">
 	<h1> Welcome to the login page! </h1>
-	<!-- Two text boxes to input username and password -->
-	<!-- Login button -->
-
-	<a href = "room.html"> ROOM </a>
+	<!-- Two text boxes to input username and password -->    
+    <form>
+    	Username: <input type="text" name="user">
+    </form>
+    <form>
+    	Password: <input type="password" name="pass">
+    </form>
+    
+    <!-- Login button -->
+    <form name="input">
+    	Login: <input type="submit" name = "pass" value="Login">
+    </form>
+    
+	<!-- wrapping the link in a div to center it with css -->
+	<div align="center">
+    	<a href = "images/room.html"> ROOM </a>
+    </div>   
 </body>
 </html>
