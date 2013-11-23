@@ -1,65 +1,79 @@
 body { 
 	color: white; 
-	text-align: center 
+	text-align: center;
+	background: url("./images/background.jpg");
 }
 
-a {
+/* The fancy class is for the login link */
+a.fancy:link {
 	color: red;
+	font-style: italic;
+	font-size: 120%;
+}
+
+a.fancy:hover {
+	text-decoration:underline;
+	font-size:150%;
+}
+
+a.fancy:visited {
+	color:red;
 }
 
 a:link{
+	color:black;
+	font-style: italic;
 	text-decoration:none; /* unvisited link */ 
 }
 
 a:visited{
+	color:black;
 	text-decoration:none; /* visited link */
 }
 
-a:hover {
-	text-decoration:underline; /* mouse over link */
-	font-size:150%;
+img.main{
+	max-width:65%;
+	max-height:65%
+}
+
+iframe.wiki{
+	min-width:99%;
+	height: 35%;
 }
 
 /* Want welcome.html to have 4 sections: header, footer, left column, main body */
 
-img{
-	max-width:70%;
-	max-height:70%
+#header {
+	height: 8%;
+	margin-bottom: 3px;
 }
 
-.header {
-	min-height: 10%;
-	margin-bottom: 5px;
-}
-
-.left_column {
+#left_column {
+	background-color:#AA0114;
 	float:left;
 	width:19%;
 	height:50%;
 	text-align: left;
 	margin-right: 5px;
+	border-radius:25px;
 }
 
-.right_column {
-	float:right;
-	width:19%;
-	height:50%;
-}
-
-.mainbody {
-	margin:auto;
+#mainbody {
 	width:50%;
 	height:50%;
-	padding: 5px;
+	margin:auto;
+	margin-bottom: 30px
 }
 
+/* Used solely to center the main div */
+#right_column {
+	float:right;
+	width:19%;
+}
 
-.footer {
-	position: fixed;
-	bottom:5;
-	left:5;
-	right:5;
-	height: 40%; 
-
+#footer {
+	position:relative;
+	min-height: 37%; 
+	min-width: 100%;
 }
 
