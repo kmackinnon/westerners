@@ -1,0 +1,53 @@
+body { 
+	color: white; 
+	text-align: center 
+}
+
+a {
+	color: red;
+}
+
+a:link{
+	text-decoration:none; /* unvisited link */ 
+}
+
+a:visited{
+	text-decoration:none; /* visited link */
+}
+
+a:hover {
+	text-decoration:underline; /* mouse over link */
+	font-size:150%;
+}
+
+/* Want welcome.html to have 4 sections: header, footer, left column, main body */
+
+.header {
+	min-height: 10%;
+	background-color: blue;
+	margin-bottom: 5px;
+}
+
+.left_column {
+	float:left;
+	background-color: orange;
+	width:20%;
+}
+
+.mainbody {
+	background-color: gray;
+	float:right;
+	width:80%;
+	height:50%;
+}
+
+.footer {
+	position: fixed;
+	bottom:5;
+	left:5;
+	right:5;
+	height: 40%;
+	background-color: purple;
+
+}
+
