@@ -1,0 +1,50 @@
+body { 
+	text-align:center;
+	color: white;
+	background: url("./images/background.jpg");
+}
+
+a:link{
+	color:red;
+}
+
+a:visited{
+	color:red;
+}
+
+input[type="text"] {
+   width: 100px;
+}
+
+#header {
+	min-height:10%;
+}
+
+#main {
+	min-height:90%;
+}
+
+
+/* Classes to position the four room links */
+.top {
+	left:48%;
+	top:12%;
+}
+
+.left {
+	position:absolute;
+	left:2%;
+	top:50%;
+}
+
+.right {
+	position:absolute;
+	right:2%;
+	top:50%;
+}
+
+.bottom {
+	position:absolute;
+	left:48%;
+	bottom:2%;
+}
