@@ -1,36 +1,13 @@
 <html>
-<head>
-
-<style>
-	.center {text-align:center;}
-	a {
-		color:red; 
-		font-style:italic; 
-	}
-	body {color:white;}
-	h1 {text-align:center;}
-</style>
-
-	<title> Login </title>
-</head>
-<body background = "images/background.jpg">
-	<h1> Welcome to the login page! </h1>
-	<!-- Two text boxes to input username and password -->    
-    <form>
-    	Username: <input type="text" name="user">
-    </form>
-    <form>
-    	Password: <input type="password" name="pass">
-    </form>
-    
-    <!-- Login button -->
-    <form name="input">
-    	Login: <input type="submit" name = "pass" value="Login">
-    </form>
-    
-    <!-- wrapping the link in a div to center it with css -->
-    <div align="center">
-    	<a href = "http://www.cs.mcgill.ca/~jcheve/ass4/room.html"> THE ROOM </a>
-    </div>   
-</body>
+	<head>
+	<title> Westerner's Login Page </title>
+	</head>
+	<body background = "background.jpg" text="white">
+		<h1><center>Westerner's MMO Login Page</h1></center>
+		<form action="./cgi-bin/login.cgi" method="post">
+			<center>Username: <input type="text" name="user" maxlength="10" /> </center><br>
+			<center>Password: <input type="password" name="pass" maxlength="20" /> </center><br>
+			<center><input type="submit" value="Login" /></center>
+		</form>
+	</body>
 </html>
