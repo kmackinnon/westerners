@@ -1,3 +1,4 @@
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -60,6 +61,9 @@ int main(){
 	strncpy(password,&string[k],j-k);
 	password[j-k]='\0';	
 	//Now I have both the username and the password. I will work with this.
+	//This will compile the passweb.c program in case it hasn't been compiled already.
+	system("gcc -o passweb passweb.c");
+	//Now to work
 	strcpy(command,"./passweb -verify");
 	strcat(command,spacing);
 	strcat(command,username);
