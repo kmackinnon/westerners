@@ -1,0 +1,87 @@
+<html>
+	<head>
+		<title> Westerner's Room Page </title>
+		<link rel="stylesheet" type="text/css" href="./roomstyle.css">
+	</head>
+	<body>
+		
+		<div id = "header">
+    		<h1> The Room </h1>
+		</div>
+
+		<!-- Display the room -->
+		<div id="main">
+				<a href="http://www.cs.mcgill.ca/~eraso/Grid.html" class="top">North</a></br>
+				<a href="http://cs.mcgill.ca/~cmacdo40/room.html" class="left">West</a></br>
+				<a href="http://www.cs.mcgill.ca/~aturne15/room.html" class="right">East</a></br>
+				<a href="http://cgi.cs.mcgill.ca/~phende/comp206/room.html" class="bottom">South</a></br>
+		</div>
+				
+		<form name="game" action="game.py" method="post">
+			<!-- Hidden tags for inventory -->
+			<input type="hidden" name="Inventory1" value="">
+			<input type="hidden" name="Inventory2" value="">
+			<input type="hidden" name="Inventory3" value="">
+			<input type="hidden" name="Inventory4" value="">
+			<input type="hidden" name="Inventory5" value="">
+
+			<!-- CGI that which implements game activity and submit button -->
+
+			I have roads but no cars.</br>
+			I have lakes but no fish.</br>
+			What am I? </br></br>
+
+			Answer: <input type="text" name="answer" method="post" maxlength="10">
+			<input type="submit" value="Submit">
+
+		</form>
+
+		<form name="goNorth" action="http://www.cs.mcgill.ca/~eraso/Grid.html" method="post">
+			<input type="hidden" name="points" value="0">
+			<input type="hidden" name="Inventory1" value="">
+			<input type="hidden" name="Inventory2" value="">
+			<input type="hidden" name="Inventory3" value="">
+			<input type="hidden" name="Inventory4" value="">
+			<input type="hidden" name="Inventory5" value="">
+
+			<!-- and the top button -->
+		</form>
+
+		<form name="goWest" action="http://cs.mcgill.ca/~cmacdo40/room.html" method="post">
+			<input type="hidden" name="points" value="0">
+			<input type="hidden" name="Inventory1" value="">
+			<input type="hidden" name="Inventory2" value="">
+			<input type="hidden" name="Inventory3" value="">
+			<input type="hidden" name="Inventory4" value="">
+			<input type="hidden" name="Inventory5" value="">
+
+			<!-- and the left button -->
+		</form>
+
+		<form name="goEast" action="http://www.cs.mcgill.ca/~aturne15/room.html" method="post">
+			<input type="hidden" name="points" value="0">
+			<input type="hidden" name="Inventory1" value="">
+			<input type="hidden" name="Inventory2" value="">
+			<input type="hidden" name="Inventory3" value="">
+			<input type="hidden" name="Inventory4" value="">
+			<input type="hidden" name="Inventory5" value="">
+
+			<!-- and the right button -->
+		</form>
+
+		<form name="goSouth" action="http://cgi.cs.mcgill.ca/~phende/comp206/room.html" method="post">
+			<input type="hidden" name="points" value="0">
+			<input type="hidden" name="Inventory1" value="">
+			<input type="hidden" name="Inventory2" value="">
+			<input type="hidden" name="Inventory3" value="">
+			<input type="hidden" name="Inventory4" value="">
+			<input type="hidden" name="Inventory5" value="">
+
+			<!-- and the bottom button -->
+		</form>
+
+		<!-- Answers from Python script here -->		
+		
+		</br>
+	</body>
+</html>
