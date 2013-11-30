@@ -20,7 +20,6 @@ print """<link rel="stylesheet" type="text/css" href="roomstyle.css">"""
 print '</head>'
 print '<body>'
 
-
 def printPage(coins):
 	#this will regenerate the page
 	print """<div id = "header">"""
@@ -74,7 +73,7 @@ def printPage(coins):
 
 #Now I have to handle the two forms
 
-#This will handle if a user puts in an answer
+#this handles if a user enters an answer
 select=form.getvalue("select")
 
 if select=="riddle":
@@ -84,8 +83,6 @@ if select=="riddle":
 	#If a user has coins, they can interact.
 	if coins!=0:
 		# loop through answer and find substring "map"
-<<<<<<< HEAD
-		
 		if "map" in answer:
 			coins+=10
 			printPage(coins)
@@ -95,24 +92,12 @@ if select=="riddle":
 			printPage(coins)
 			print '<font color="red"><p> You gave the wrong answer. You have lost 10 coins. You have',coins,' coins!</p></font>'
 			break
-=======
-		for i in range(len(answer)-2):
-			if answer[i:i+3] == "map":
-				coins+=10
-				printPage(coins)
-				print '<font color="green"><p>That is correct! You have earned 10 more coins. You have',coins,' coins!</p></font>'
-			else:
-				coins-=10
-				printPage(coins)
-				print '<font color="red"><p> You gave the wrong answer. You have lost 10 coins. You have',coins,' coins!</p></font>'
-				break
->>>>>>> 61d7ad26156808e89c43fa150f78b8d186eeed56
 
 	#if a user has no coins, they cannot interact.
 	else:
 		printPage(coins)
 
-#this handles if a user puts in a command.	
+#this handles if a user enters a command.	
 elif select=="command":
 
 	command = form.getvalue("command").lower()
