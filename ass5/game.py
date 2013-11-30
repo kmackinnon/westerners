@@ -1,4 +1,3 @@
-
 #!/usr/bin/python
 import cgi
 import cgitb; cgitb.enable()   # enable debugging mode
@@ -98,25 +97,24 @@ def printPage(coins):
 
 #This will handle if a user puts in an answer
 select=form.getvalue("select")
-if select=="riddle":
 
+if select=="riddle":
 	#get the user's answer to the riddle and convert to lowercase
-	temp = form.getvalue("answer")
-	answer=temp.lower()
+	answer=form.getvalue("answer").lower()
 
 	#If a user has coins, they can interact.
 	if coins!=0:
 		# loop through answer and find substring "map"
-		for i in range(len(answer)-2):
-			if answer[i:i+3] == "map":
-				coins+=10
-				printPage(coins)
-				print '<font color="green"><p>That is corrent! You have earned 10 more coins. You have',coins,' coins!</p></font>'
-			else:
-				coins-=10
-				printPage(coins)
-				print '<font color="red"><p> You gave the wrong answer. You have lost 10 coins. You have',coins,' coins!</p></font>'
-				break
+		
+		if "map" in answer:
+			coins+=10
+			printPage(coins)
+			print '<font color="green"><p>That is corrent! You have earned 10 more coins. You have',coins,' coins!</p></font>'
+		else:
+			coins-=10
+			printPage(coins)
+			print '<font color="red"><p> You gave the wrong answer. You have lost 10 coins. You have',coins,' coins!</p></font>'
+			break
 
 	#if a user has no coins, they cannot interact.
 	else:
