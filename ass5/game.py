@@ -1,4 +1,3 @@
-
 #!/usr/bin/python
 import cgi
 import cgitb; cgitb.enable()   # enable debugging mode
@@ -6,6 +5,12 @@ import cgitb; cgitb.enable()   # enable debugging mode
 form = cgi.FieldStorage() 
 
 coins=int(form.getvalue('coins'))
+
+Inventory1=form.getvalue("Inventory1")
+Inventory2=form.getvalue("Inventory2")
+Inventory3=form.getvalue("Inventory3")
+Inventory4=form.getvalue("Inventory4")
+Inventory5=form.getvalue("Inventory5")
 
 print "Content-type:text/html\r\n\r\n"
 print '<html>'
@@ -41,55 +46,28 @@ def printPage(coins):
 	print "I have roads but no cars.</br>"
 	print "I have lakes but no fish.</br>"
 	print "What am I? </br></br>"
-	print """Answer: <input type="text" name="answer" method="post" maxlength="10">"""
+	print """Answer: <input type="text" name="answer" method="post" maxlength="5">"""
 	#this is what will use the updated coins value to update the page
 	print """<input type="hidden" name="coins" value=" """,coins,""" "> """
+	print """<input type="hidden" name="select" value="riddle">"""
 	print """<input type="submit" value="Submit">"""
 	print "</form>"
 
-	print """<form name="goNorth" action="http://www.cs.mcgill.ca/~eraso/Grid.html" method="post">"""
-	print """<input type="hidden" name="points" value="0">"""
+	print """<form name="command" action="game.py" method="post">"""
+	print """<!--Hidden tags for inventory -->"""
 	print """<input type="hidden" name="Inventory1" value="">"""
 	print """<input type="hidden" name="Inventory2" value="">"""
 	print """<input type="hidden" name="Inventory3" value="">"""
 	print """<input type="hidden" name="Inventory4" value="">"""
 	print """<input type="hidden" name="Inventory5" value="">"""
 
-	print "<!-- and the top button -->"
-	print "</form>"
-
-	print """<form name="goWest" action="http://cs.mcgill.ca/~cmacdo40/room.html" method="post">"""
-	print """<input type="hidden" name="points" value="0">"""
-	print """<input type="hidden" name="Inventory1" value="">"""
-	print """<input type="hidden" name="Inventory2" value="">"""
-	print """<input type="hidden" name="Inventory3" value="">"""
-	print """<input type="hidden" name="Inventory4" value="">"""
-	print """<input type="hidden" name="Inventory5" value="">"""
-
-	print "<!-- and the left button -->"
-	print "</form>"
-
-	print """<form name="goEast" action="http://www.cs.mcgill.ca/~aturne15/room.html" method="post">"""
-	print """<input type="hidden" name="points" value="0">"""
-	print """<input type="hidden" name="Inventory1" value="">"""
-	print """<input type="hidden" name="Inventory2" value="">"""
-	print """<input type="hidden" name="Inventory3" value="">"""
-	print """<input type="hidden" name="Inventory4" value="">"""
-	print """<input type="hidden" name="Inventory5" value="">"""
-
-	print """<!-- and the right button -->"""
-	print "</form>"
-
-	print"""<form name="goSouth" action="http://cgi.cs.mcgill.ca/~phende/comp206/room.html" method="post">"""
-	print """<input type="hidden" name="points" value="0">"""
-	print """<input type="hidden" name="Inventory1" value="">"""
-	print """<input type="hidden" name="Inventory2" value="">"""
-	print """<input type="hidden" name="Inventory3" value="">"""
-	print """<input type="hidden" name="Inventory4" value="">"""
-	print """<input type="hidden" name="Inventory5" value="">"""
-
-	print"<!-- and the bottom button -->"
-	print"</form>"
+	print """<!-- CGI that implements the game commands -->"""
+	print """Command: <input type="text" name="command" method="post" maxlength="10">"""
+	#I pass in the coins again too.
+	print """<input type="hidden" name="coins" value =" """,coins,""" "> """
+	print """<input type="hidden" name="select" value="command">"""
+	print """<input type="submit" value="Command">"""
+	print """</form>"""
 	
 	print"</br>"
 
@@ -111,7 +89,7 @@ if select=="riddle":
 			if answer[i:i+3] == "map":
 				coins+=10
 				printPage(coins)
-				print '<font color="green"><p>That is corrent! You have earned 10 more coins. You have',coins,' coins!</p></font>'
+				print '<font color="green"><p>That is correct! You have earned 10 more coins. You have',coins,' coins!</p></font>'
 			else:
 				coins-=10
 				printPage(coins)
