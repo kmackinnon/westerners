@@ -4,7 +4,8 @@ import cgitb; cgitb.enable()   # enable debugging mode
 
 form = cgi.FieldStorage() 
 
-coins=int(form.getvalue('coins'))
+coins = int(form.getvalue('coins'))
+command = form.getvalue("command")
 
 print "Content-type:text/html\r\n\r\n"
 print '<html>'
@@ -14,9 +15,8 @@ print """<link rel="stylesheet" type="text/css" href="roomstyle.css">"""
 print '</head>'
 print '<body>'
 
-
+# this will regenerate the page
 def printPage(coins):
-	#this will regenerate the page
 	print """<div id = "header">"""
 	print '<h1> The Room </h1>'
 	print '</div>'
@@ -36,7 +36,7 @@ def printPage(coins):
 	print """<input type="hidden" name="Inventory4" value="">"""
 	print """<input type="hidden" name="Inventory5" value="">"""
 
-	print "<!-- CGI that which implements game activity and submit button -->"
+	print "<!-- CGI which implements game activity and submit button -->"
 	print "I have roads but no cars.</br>"
 	print "I have lakes but no fish.</br>"
 	print "What am I? </br></br>"
@@ -93,17 +93,16 @@ def printPage(coins):
 	print"</br>"
 
 #get the user's answer to the riddle and convert to lowercase
-temp = form.getvalue("answer")
-answer=temp.lower()
+answer = form.getvalue("answer").lower()
 
 #If a user has coins, they can interact.
-if coins!=0:
+if coins != 0:
 	# loop through answer and find substring "map"
 	for i in range(len(answer)-2):
 		if answer[i:i+3] == "map":
-		        coins+=10
+		    coins+=10
 			printPage(coins)
-			print '<font color="green"><p>That is corrent! You have earned 10 more coins. You have',coins,' coins!</p></font>'
+			print '<font color="green"><p>That is correct! You have earned 10 more coins. You have',coins,' coins!</p></font>'
 		else:
 			coins-=10
 			printPage(coins)
@@ -113,7 +112,30 @@ if coins!=0:
 #if a user has no coins, they cannot interact.
 else:
 	printPage(coins)
-	
+
+
+# get the user's command
+command = form.getvalue("command").lower()
+
+if command == "look":
+	print command
+	# display inventory in csv by index
+
+elif command[:6] == "pickup":
+	num = int(command[7:])
+	# remove n items from inventory and add it to first hidden inventory slot
+	# if there are no slots available, error message and item should not be removed from csv.
+	# room redisplayed
+
+elif command[:4] == "drop":
+	num = int(command[5:])
+	# item in Inventorynum would be removed ""
+	# item added to Inventory.csv
+
+elif command == "inventory":
+	# displays the items the user has to the screen
+	# room redisplayed
+
 print '</body>'
 print '</html>'
 		
