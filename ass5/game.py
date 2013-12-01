@@ -2,6 +2,7 @@
 import cgi
 import cgitb; cgitb.enable() # enable debugging mode
 import csv
+import os, sys
 
 form = cgi.FieldStorage()
 
@@ -28,8 +29,6 @@ for i in range(len(InventoryList)):
 	if InventoryList[i] == "None":
 		InventoryList[i]=""
 
-
-#TODO: param to list
 # regenerates the page
 def printPage(coins, InventoryList):
         print """<div id = "header">"""
@@ -104,6 +103,8 @@ if select=="riddle":
 # if the user enters a command       
 elif select=="command":
 	command = form.getvalue("command").lower()
+	
+	# look which prints out the inventory from the csv file
 	if command == "look":
 		printPage(coins,InventoryList)
 		file='inventory.csv'
@@ -114,24 +115,55 @@ elif select=="command":
 			print line
 			print "</br>"
 			count+=1
+	
+	# pickup which removed inventory from the csv and adds it to available inventory slot
 	elif command[:6] == "pickup":
 		num = int(command[7:])
-		print "Test pickup"
-		# remove n items from inventory and add it to first hidden inventory slot
-		# if there are no slots available, error message and item should not be removed from csv.
-		# room redisplayed
+		maxLine=0
+		f=open('inventory.csv', 'r')
+		for line in f:
+			maxLine+=1
+
+		if num>maxLine or num<=0:
+			printPage(coins,InventoryList)
+			print '<font color="red">Not a valid pickup choice.</font></br>'
+			print '<font color="red">Enter a number from 1 to ',maxLine,'</font>'
+		else:
+			emptySlot=False 
+			slot=0
+			for i, val in enumerate(InventoryList):
+				if val is None:
+					emptySlot=True
+					slot=i
+					break
+			if not emptySlot:
+				printPage(coins,InventoryList)
+				print '<font color="red">Your inventory is full right now. Please drop something first.</font>'
+			else:
+				file='temporary.csv'
+				f1=open(file,'w+')
+				file='inventory.csv'
+				f2=open(file,'r')
+				#f1 is the new file to write to, f2 is the old file to read from
+				linecount=0
+				for line in f2:
+					linecount+=1
+					if linecount!=num:
+						f1.write(line)
+					#If I'm here, desired line in the inventory.csv has been reached					
+					else:
+						InventoryList[slot]=line
+					
+				#Entire file has been read. Now can copy temporary.csv into the inventory.csv file.	
+				os.remove('inventory.csv')		
+				os.rename('temporary.csv','inventory.csv')
+				printPage(coins,InventoryList)
+				print "You have added",InventoryList[slot],"to your inventory.</br>"
+				print "It is located at inventory slot",slot+1,"." # inventory starts at 1
 	
+	# drop which allows users to drop items in our room
 	elif command[:4] == "drop":
 		num = int(command[5:])
-		
-		print InventoryList
-		if isinstance(InventoryList[num-1], str):
-			print "Vybihal"
-			# We know that InventoryList[num-1] is a string which is equal to "None"
-			print [ord(c) for c in InventoryList[num-1]]
-			if InventoryList[num-1] == "None":
-				print "FML"
-
 		if 1<=num<=5:
 			if InventoryList[num-1]: #enters if statement when not None
 				file='inventory.csv'
@@ -148,6 +180,7 @@ elif select=="command":
 		else:
 			print "Please enter a valid pickup number from 1-5."
 	
+	# inventory which displays what the user has in his possession
 	elif command == "inventory":
 		printPage(coins,InventoryList)
 		print "1.", Inventory1
@@ -159,7 +192,6 @@ elif select=="command":
 		print "4.", Inventory4
 		print "</br>"
 		print "5.", Inventory5
-        # displays the items the user has to the screen
-        # room redisplayed
+
 print '</body>'
 print '</html>'
