@@ -35,12 +35,18 @@ print '<h1> The Room </h1>'
 print '</div>'
 print '<!--Display the room -->'
 print """<div id="main">"""
-print """<a href="http://www.cs.mcgill.ca/~eraso/Grid.html" class="top">North</a></br>"""
-print """<a href="http://cs.mcgill.ca/~cmacdo40/room.html" class="left">West</a></br>"""
-print """<a href="http://www.cs.mcgill.ca/~aturne15/room.html" class="right">East</a></br>"""
-print """<a href="http://cgi.cs.mcgill.ca/~phende/comp206/room.html" class="bottom">South</a></br>"""
-print "</div>"
 
+print """ <form name="goNorth" action="http://www.cs.mcgill.ca/~eraso/Grid.html" method="post">"""
+print """<input type="hidden" name="coins" value=" """,coins,""" "> """
+print """<input type="hidden" name="Inventory1" value=""",InventoryList[0],""">"""
+print """<input type="hidden" name="Inventory2" value=""",InventoryList[1],""">"""
+print """<input type="hidden" name="Inventory3" value=""",InventoryList[2],""">"""
+print """<input type="hidden" name="Inventory4" value=""",InventoryList[3],""">"""
+print """<input type="hidden" name="Inventory5" value=""",InventoryList[4],""">"""
+print "<!-- and the top button -->"
+print """<a href="http://www.cs.mcgill.ca/~eraso/Grid.html" onclick = form.submit() class="top">North</a></br></br></br></br>"""
+print "</form>"
+	
 print """<form name="game" action="game.py" method="post">"""
 print "<!-- Hidden tags for inventory -->"
 print """<input type="hidden" name="Inventory1" value=""",InventoryList[0],""">"""
@@ -73,8 +79,43 @@ print """<input type="hidden" name="coins" value =" """,coins,""" "> """
 print """<input type="hidden" name="select" value="command">"""
 print """<input type="submit" value="Command">"""
 print """</form>"""
+	
+print """<form name="goWest" action="http://cs.mcgill.ca/~cmacdo40/ass5/transfer.py" method="post">"""
+print """<input type="hidden" name="coins" value=" """,coins,""" ">"""
+print """<input type="hidden" name="Inventory1" value=""",InventoryList[0],""">"""
+print """<input type="hidden" name="Inventory2" value=""",InventoryList[1],""">"""
+print """ <input type="hidden" name="Inventory3" value=""",InventoryList[2],""">"""
+print """<input type="hidden" name="Inventory4" value=""",InventoryList[3],""">"""
+print """<input type="hidden" name="Inventory5" value=""",InventoryList[4],""">"""
+print "<!-- and the left button -->"
+print """<a href="http://cs.mcgill.ca/~cmacdo40/ass5/transfer.py" onclick = form.submit() class="left">West</a></br>"""
+print "</form>"
 
-print"</br>"
+print """<form name="goEast" action="http://www.cs.mcgill.ca/~aturne15/room.html" method="post">"""
+print """<input type="hidden" name="coins" value=" """,coins,""" "> """
+print """<input type="hidden" name="Inventory1" value=""",InventoryList[0],""">"""
+print """<input type="hidden" name="Inventory2" value=""",InventoryList[1],""">"""
+print """<input type="hidden" name="Inventory3" value=""",InventoryList[2],""">"""
+print """<input type="hidden" name="Inventory4" value=""",InventoryList[3],""">"""
+print """<input type="hidden" name="Inventory5" value=""",InventoryList[4],""">"""
+print "<!-- the right button -->"
+print """<a href="http://www.cs.mcgill.ca/~aturne15/room.html" onclik = form.submit() class="right">East</a></br>"""
+print "</form>"
+
+print """<form name="goSouth" action="http://cgi.cs.mcgill.ca/~phende/comp206/room.html" method="post">"""
+print """<input type="hidden" name="coins" value=" """,coins,""" "> """
+print """<input type="hidden" name="Inventory1" value=""",InventoryList[0],""">"""
+print """<input type="hidden" name="Inventory2" value=""",InventoryList[1],""">"""
+print """<input type="hidden" name="Inventory3" value=""",InventoryList[2],""">"""
+print """<input type="hidden" name="Inventory4" value=""",InventoryList[3],""">"""
+print """<input type="hidden" name="Inventory5" value=""",InventoryList[4],""">"""                       
+print "<!-- and the bottom button -->"
+print """<a href="http://cgi.cs.mcgill.ca/~phende/comp206/room.html" onclick = form.submit() class="bottom">South</a></br>"""
+print"</form>" 
+
+	
+print "</br>"
+print "</div>"
 
 print '</body>'
 print '</html>'
