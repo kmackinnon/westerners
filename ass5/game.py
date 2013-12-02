@@ -37,7 +37,7 @@ def printPage(coins, InventoryList):
 	print '<!--Display the room -->'
 	print """<div id="main">"""
 
-	print """ <form name="goNorth" action="http://www.cs.mcgill.ca/~eraso/Grid.html" method="post">"""
+	print """ <form name="goNorth" action="http://cs.mcgill.ca/~eraso/ass5/transfer.py" method="post">"""
 	print """<input type="hidden" name="coins" value=" """,coins,""" "> """
 	print """<input type="hidden" name="Inventory1" value=""",InventoryList[0],""">"""
 	print """<input type="hidden" name="Inventory2" value=""",InventoryList[1],""">"""
@@ -45,7 +45,7 @@ def printPage(coins, InventoryList):
 	print """<input type="hidden" name="Inventory4" value=""",InventoryList[3],""">"""
 	print """<input type="hidden" name="Inventory5" value=""",InventoryList[4],""">"""
 	print "<!-- and the top button -->"
-	print """<a href="http://www.cs.mcgill.ca/~eraso/Grid.html" onclick = form.submit() class="top">North</a></br></br></br></br>"""
+	print """<a href="http://cs.mcgill.ca/~eraso/ass5/transfer.py" onclick = form.submit() class="top">North</a></br></br></br></br>"""
  	print "</form>"
 	
 	print """<form name="game" action="game.py" method="post">"""
