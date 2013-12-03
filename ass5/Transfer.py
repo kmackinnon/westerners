@@ -99,7 +99,7 @@ print """<input type="hidden" name="Inventory3" value=""",InventoryList[2],""">"
 print """<input type="hidden" name="Inventory4" value=""",InventoryList[3],""">"""
 print """<input type="hidden" name="Inventory5" value=""",InventoryList[4],""">"""
 print "<!-- the right button -->"
-print """<a href="http://cs.mcgill.ca/~aturne15/ass5/transfer.py" onclik = form.submit() class="right">East</a></br>"""
+print """<a href="http://cs.mcgill.ca/~aturne15/ass5/transfer.py" onclick = form.submit() class="right">East</a></br>"""
 print "</form>"
 
 print """<form name="goSouth" action="http://cgi.cs.mcgill.ca/~phende/comp206/room.html" method="post">"""
