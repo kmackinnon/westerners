@@ -102,7 +102,7 @@ print "<!-- the right button -->"
 print """<a href="http://cs.mcgill.ca/~aturne15/cgi-bin/transfer.py" onclick = form.submit() class="right">East</a></br>"""
 print "</form>"
 
-print """<form name="goSouth" action="http://cgi.cs.mcgill.ca/~phende/comp206/room.html" method="post">"""
+print """<form name="goSouth" action="http://cgi.cs.mcgill.ca/~phende/cgi-bin/transfer.py" method="post">"""
 print """<input type="hidden" name="coins" value=" """,coins,""" "> """
 print """<input type="hidden" name="Inventory1" value=""",InventoryList[0],""">"""
 print """<input type="hidden" name="Inventory2" value=""",InventoryList[1],""">"""

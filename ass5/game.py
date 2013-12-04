@@ -111,7 +111,7 @@ def printPage(coins, InventoryList):
 	print """<input type="hidden" name="Inventory4" value=""",InventoryList[3],""">"""
 	print """<input type="hidden" name="Inventory5" value=""",InventoryList[4],""">"""                       
 	print "<!-- and the bottom button -->"
-	print """<a href="http://cgi.cs.mcgill.ca/~phende/comp206/room.html" onclick = form.submit() class="bottom">South</a></br>"""
+	print """<a href="http://cgi.cs.mcgill.ca/~phende/cgi-bin/transfer.py" onclick = form.submit() class="bottom">South</a></br>"""
 	print"</form>" 
 
 	
